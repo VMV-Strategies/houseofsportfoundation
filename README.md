@@ -66,7 +66,7 @@ Official static website for **The House of Sport Foundation**, built for zero-co
    | :--- | :--- | :--- | :--- |
    | `CNAME` | `www` | `<YOUR-GITHUB-USERNAME>.github.io` | Default (1 Hour) |
 
-   *(Replace `<YOUR-GITHUB-USERNAME>` with your actual GitHub username, e.g., `randeepchhinzer.github.io` — do **not** include the repository name.)*
+   *(Replace `<YOUR-GITHUB-USERNAME>` with your actual GitHub username, e.g., `ronchhinzer.github.io` — do **not** include the repository name.)*
 
 ---
 
