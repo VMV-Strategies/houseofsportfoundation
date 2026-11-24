@@ -1,0 +1,964 @@
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The House of Sport Foundation — Where Sport Builds Futures</title>
+  <meta name="description" content="The House of Sport Foundation (www.thehouseofsport.ca) is a Canadian federal not-for-profit advancing sport development, workforce pathways, youth empowerment, mentorship, and sport innovation.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', 'Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            apple: {
+              white: '#FFFFFF',
+              gray: '#F5F5F7',
+              grayHover: '#EBEBEF',
+              ink: '#1D1D1F',
+              secondary: '#6E6E73',
+              tertiary: '#86868B',
+              border: '#D2D2D7',
+              blue: '#D80621',
+              blueHover: '#B8051C',
+            }
+          },
+          boxShadow: {
+            'apple-sm': '0 2px 12px rgba(0, 0, 0, 0.04)',
+            'apple-md': '0 12px 32px rgba(0, 0, 0, 0.06)',
+            'apple-lg': '0 24px 60px rgba(0, 0, 0, 0.12)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", system-ui, sans-serif;
+      color: #1D1D1F;
+      background-color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .frosted-nav {
+      background-color: rgba(255, 255, 255, 0.82);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .bento-card {
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 44px rgba(216, 6, 33, 0.08);
+    }
+    .segment-btn {
+      transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .modal-backdrop {
+      background-color: rgba(29, 29, 31, 0.42);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  </style>
+
+
+  <div class="h-1 w-full flex">
+    <div class="w-1/4 bg-[#D80621]"></div>
+    <div class="w-2/4 bg-white"></div>
+    <div class="w-1/4 bg-[#D80621]"></div>
+  </div>
+  <header class="sticky top-0 z-40 frosted-nav border-b border-[#D2D2D7]/70 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 group focus:outline-none">
+        <div class="w-8 h-8 rounded-xl bg-[#D80621] text-white flex items-center justify-center shadow-sm group-hover:bg-[#B8051C] transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L9.8 7.2L6.2 6.4L7.6 10.6L4 12.2L8.4 14.4L7.8 17.2H11.2V22H12.8V17.2H16.2L15.6 14.4L20 12.2L16.4 10.6L17.8 6.4L14.2 7.2L12 2Z"></path>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-[15px] sm:text-base font-semibold tracking-tight text-[#1D1D1F] leading-none">
+            The House of Sport
+          </span>
+          <span class="text-[10px] font-medium tracking-wider uppercase text-[#6E6E73] mt-0.5">
+            Foundation · Canada
+          </span>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-7 text-[13px] font-normal text-[#1D1D1F]/85">
+        <a href="#mission" class="hover:text-[#D80621] transition-colors py-2">Mission</a>
+        <a href="#pillars" class="hover:text-[#D80621] transition-colors py-2">Pillars</a>
+        <a href="#pathways" class="hover:text-[#D80621] transition-colors py-2">Pathways</a>
+        <a href="#governance" class="hover:text-[#D80621] transition-colors py-2">Governance</a>
+        <a href="#contact" class="hover:text-[#D80621] transition-colors py-2">Connect</a>
+      </nav>
+      <div class="flex items-center gap-2.5">
+        <button onclick="openPartnerModal('Corporate Sponsorship &amp; Grants')" class="bg-[#D80621] hover:bg-[#B8051C] text-white text-[13px] font-medium px-4 py-1.5 sm:py-2 rounded-full transition-all shadow-sm active:scale-[0.98]">
+          Partner With Us
+        </button>
+        <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden p-2 rounded-full text-[#1D1D1F] hover:bg-[#F5F5F7] transition-colors">
+          <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"></path>
+          </svg>
+          <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-[#D2D2D7] px-6 py-4 space-y-1">
+      <a href="#mission" onclick="closeMobileMenu()" class="block py-2.5 text-base font-medium text-[#1D1D1F] border-b border-[#F5F5F7]">Mission</a>
+      <a href="#pillars" onclick="closeMobileMenu()" class="block py-2.5 text-base font-medium text-[#1D1D1F] border-b border-[#F5F5F7]">Pillars</a>
+      <a href="#pathways" onclick="closeMobileMenu()" class="block py-2.5 text-base font-medium text-[#1D1D1F] border-b border-[#F5F5F7]">Pathways</a>
+      <a href="#governance" onclick="closeMobileMenu()" class="block py-2.5 text-base font-medium text-[#1D1D1F] border-b border-[#F5F5F7]">Governance</a>
+      <a href="#contact" onclick="closeMobileMenu()" class="block py-2.5 text-base font-medium text-[#1D1D1F]">Connect</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative pt-14 pb-20 sm:pt-20 sm:pb-28 bg-white overflow-hidden">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF5F6] border border-[#D80621]/20 text-xs sm:text-[13px] font-medium text-[#1D1D1F] mb-7">
+          <svg class="w-3.5 h-3.5 text-[#D80621]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2L9.8 7.2L6.2 6.4L7.6 10.6L4 12.2L8.4 14.4L7.8 17.2H11.2V22H12.8V17.2H16.2L15.6 14.4L20 12.2L16.4 10.6L17.8 6.4L14.2 7.2L12 2Z"></path>
+          </svg>
+          <span>Canadian Federal Not-for-Profit · www.thehouseofsport.ca</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl lg:text-[66px] font-semibold tracking-[-0.03em] text-[#1D1D1F] leading-[1.06] max-w-4xl mx-auto">
+          Advancing the future of <span class="text-[#D80621]">Canadian</span> sport, community, and opportunity.
+        </h1>
+        <p class="mt-6 text-lg sm:text-2xl font-normal text-[#6E6E73] tracking-[-0.015em] leading-[1.4] max-w-3xl mx-auto">
+          From coast to coast to coast, a Canadian federal not-for-profit dedicated to athletic participation, workforce pathways, youth empowerment, mentorship, and sport innovation.
+        </p>
+        <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          <a href="#mission" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-[#D80621] hover:bg-[#B8051C] text-white text-[15px] font-medium transition-all shadow-sm active:scale-[0.98]">
+            Explore Our Mission
+          </a>
+          <a href="#pillars" class="inline-flex items-center justify-center gap-1 text-[16px] font-medium text-[#D80621] hover:underline py-2">
+            <span>Discover Our Pillars</span>
+            <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-16 reveal">
+        <div class="relative overflow-hidden rounded-[28px] sm:rounded-[34px] bg-[#F5F5F7] border border-[#D2D2D7]/60 p-6 sm:p-10 lg:p-12 shadow-apple-md">
+          <svg class="pointer-events-none absolute -right-12 -bottom-12 w-72 h-72 text-[#D80621]/[0.04]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2L9.8 7.2L6.2 6.4L7.6 10.6L4 12.2L8.4 14.4L7.8 17.2H11.2V22H12.8V17.2H16.2L15.6 14.4L20 12.2L16.4 10.6L17.8 6.4L14.2 7.2L12 2Z"></path>
+          </svg>
+          <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-5">
+              <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#D80621]">
+                <span>A National Home for Canadian Sport &amp; Opportunity</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl lg:text-[34px] font-semibold tracking-tight text-[#1D1D1F] leading-[1.18]">
+                More than a playing field. A Canadian ecosystem for lifelong economic and social mobility.
+              </h2>
+              <p class="text-[15px] sm:text-base text-[#6E6E73] leading-relaxed">
+                From grassroots tournaments and youth leadership to vocational apprenticeships, athlete-to-career transitions, and sport technology innovation, The House of Sport Foundation unites Canadian communities, employers, educators, and innovators under one shared roof.
+              </p>
+              <div class="pt-2 flex flex-wrap gap-2.5">
+                <span class="px-3.5 py-1.5 rounded-full bg-white text-xs font-medium text-[#1D1D1F] border border-[#D2D2D7]/70">Amateur &amp; Community Sport</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white text-xs font-medium text-[#1D1D1F] border border-[#D2D2D7]/70">Career &amp; Workforce Readiness</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white text-xs font-medium text-[#1D1D1F] border border-[#D2D2D7]/70">Youth Inclusion</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white text-xs font-medium text-[#1D1D1F] border border-[#D2D2D7]/70">Sport Tech &amp; R&amp;D</span>
+              </div>
+            </div>
+            <div class="lg:col-span-5 grid grid-cols-2 gap-3.5 sm:gap-4">
+              <div class="bg-white rounded-2xl p-5 border border-[#D2D2D7]/60 shadow-apple-sm">
+                <p class="text-xs font-medium text-[#6E6E73]">Core Mandate</p>
+                <p class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-[#1D1D1F]">6 Pillars</p>
+                <p class="mt-1.5 text-xs text-[#6E6E73] leading-snug">Holistic programs spanning sport, careers &amp; innovation.</p>
+              </div>
+              <div class="bg-white rounded-2xl p-5 border border-[#D2D2D7]/60 shadow-apple-sm">
+                <p class="text-xs font-medium text-[#6E6E73]">Canadian Reach</p>
+                <p class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-[#1D1D1F]">National</p>
+                <p class="mt-1.5 text-xs text-[#6E6E73] leading-snug">Serving communities coast to coast to coast.</p>
+              </div>
+              <div class="bg-white rounded-2xl p-5 border border-[#D2D2D7]/60 shadow-apple-sm">
+                <p class="text-xs font-medium text-[#6E6E73]">Reinvestment</p>
+                <p class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-[#D80621]">100%</p>
+                <p class="mt-1.5 text-xs text-[#6E6E73] leading-snug">Not-for-profit dedication to public &amp; youth impact.</p>
+              </div>
+              <div class="bg-white rounded-2xl p-5 border border-[#D2D2D7]/60 shadow-apple-sm">
+                <p class="text-xs font-medium text-[#6E6E73]">Home Base</p>
+                <p class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-[#1D1D1F]">Canada</p>
+                <p class="mt-1.5 text-xs text-[#6E6E73] leading-snug">Headquartered in Oakville, Ontario.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission" class="py-20 sm:py-28 bg-[#F5F5F7] border-t border-[#D2D2D7]/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl reveal">
+          <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#D80621]">What We Do &amp; Our Mission</p>
+          <h2 class="mt-3 text-3xl sm:text-5xl font-semibold tracking-[-0.025em] text-[#1D1D1F] leading-[1.12]">
+            Unlocking Canadian potential through the power of sport.
+          </h2>
+          <p class="mt-6 text-lg sm:text-xl text-[#6E6E73] leading-relaxed font-normal">
+            The House of Sport Foundation bridges the gap between amateur and community sport and sustainable career, educational, and social outcomes across Canada.
+          </p>
+        </div>
+        <div class="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 reveal">
+          <div class="lg:col-span-7 bg-white rounded-[28px] p-8 sm:p-10 border border-[#D2D2D7]/70 shadow-apple-sm flex flex-col justify-between">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full bg-[#F5F5F7] text-xs font-semibold text-[#1D1D1F] mb-5">What We Do</span>
+              <h3 class="text-2xl sm:text-[28px] font-semibold tracking-tight text-[#1D1D1F] leading-snug">
+                Connecting grassroots play to real-world pathways.
+              </h3>
+              <p class="mt-4 text-[15px] sm:text-base text-[#6E6E73] leading-relaxed">
+                We design, host, and support athletic leagues, tournaments, and community festivals while building structured pipelines into employment, entrepreneurship, and leadership across sport, recreation, events, and entertainment.
+              </p>
+              <p class="mt-4 text-[15px] sm:text-base text-[#6E6E73] leading-relaxed">
+                Whether supporting an emerging youth athlete, guiding a student into an industry apprenticeship, or deploying digital innovations that make recreation safer and more accessible, our work ensures every community can thrive.
+              </p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-[#F5F5F7] grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <p class="text-sm font-semibold text-[#1D1D1F]">Play &amp; Compete</p>
+                <p class="text-xs text-[#6E6E73] mt-1">Inclusive leagues, festivals &amp; amateur development.</p>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-[#1D1D1F]">Learn &amp; Work</p>
+                <p class="text-xs text-[#6E6E73] mt-1">Certifications, internships &amp; career transition.</p>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-[#1D1D1F]">Innovate &amp; Build</p>
+                <p class="text-xs text-[#6E6E73] mt-1">Sport-tech R&amp;D &amp; community facilities.</p>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-white rounded-[28px] p-8 sm:p-10 border border-[#D2D2D7]/70 shadow-apple-sm flex flex-col justify-between">
+            <div>
+              <div class="w-11 h-11 rounded-2xl bg-[#D80621]/10 text-[#D80621] flex items-center justify-center mb-5">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L9.8 7.2L6.2 6.4L7.6 10.6L4 12.2L8.4 14.4L7.8 17.2H11.2V22H12.8V17.2H16.2L15.6 14.4L20 12.2L16.4 10.6L17.8 6.4L14.2 7.2L12 2Z"></path>
+                </svg>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-[#6E6E73]">Our Philosophy</span>
+              <h3 class="mt-2 text-xl sm:text-2xl font-semibold tracking-tight text-[#1D1D1F]">
+                An open Canadian roof where sport meets lifelong opportunity.
+              </h3>
+              <p class="mt-4 text-[15px] text-[#6E6E73] leading-relaxed">
+                We believe sport is one of Canada’s most unifying engines for belonging, resilience, and economic mobility. By bringing together youth, emerging athletes, underserved communities, educators, and employers under one collaborative foundation, we turn athletic participation into lasting personal and professional success.
+              </p>
+            </div>
+            <div class="mt-8 pt-5 border-t border-[#F5F5F7] flex items-center justify-between text-xs text-[#6E6E73]">
+              <span>Canadian Federal Not-for-Profit</span>
+              <a href="#pillars" class="text-[#D80621] font-medium hover:underline inline-flex items-center gap-1">
+                <span>Explore Program Pillars</span>
+                <span>›</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pillars" class="py-20 sm:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal">
+          <div class="max-w-2xl">
+            <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#D80621]">Strategic Pillars</p>
+            <h2 class="mt-3 text-3xl sm:text-5xl font-semibold tracking-[-0.025em] text-[#1D1D1F] leading-[1.12]">
+              Six interconnected pillars of impact.
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-[#6E6E73]">
+              Select any pillar below to explore our programs, deliverables, and ways to collaborate.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2" id="pillarFilters">
+            <button data-filter="all" class="pillar-filter-btn active px-4 py-2 rounded-full text-xs font-medium bg-[#D80621] text-white transition-all">
+              All Pillars (6)
+            </button>
+            <button data-filter="people" class="pillar-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-[#F5F5F7] text-[#1D1D1F] hover:bg-[#EBEBEF] transition-all">
+              Athletes &amp; Youth
+            </button>
+            <button data-filter="economy" class="pillar-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-[#F5F5F7] text-[#1D1D1F] hover:bg-[#EBEBEF] transition-all">
+              Workforce &amp; Tech
+            </button>
+            <button data-filter="community" class="pillar-filter-btn px-4 py-2 rounded-full text-xs font-medium bg-[#F5F5F7] text-[#1D1D1F] hover:bg-[#EBEBEF] transition-all">
+              Infrastructure &amp; Alliances
+            </button>
+          </div>
+        </div>
+        <div id="pillarsGrid" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal"></div>
+      </div>
+    </section>
+
+    <section id="pathways" class="py-20 sm:py-28 bg-[#F5F5F7] border-t border-[#D2D2D7]/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto reveal">
+          <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#D80621]">Who We Serve</p>
+          <h2 class="mt-3 text-3xl sm:text-5xl font-semibold tracking-[-0.025em] text-[#1D1D1F] leading-[1.12]">
+            Designed for every stakeholder in the Canadian sport ecosystem.
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-[#6E6E73]">
+            Explore tailored programs, resources, and collaboration models built around your journey.
+          </p>
+        </div>
+        <div class="mt-10 flex justify-center reveal">
+          <div role="tablist" aria-label="Who We Serve Pathways" class="inline-flex flex-wrap justify-center gap-1.5 p-1.5 rounded-2xl sm:rounded-full bg-[#E8E8ED]/80 border border-[#D2D2D7]/60 max-w-full">
+            <button role="tab" aria-selected="true" data-pathway="youth" class="pathway-tab segment-btn px-4 sm:px-5 py-2.5 rounded-xl sm:rounded-full text-xs sm:text-[13px] font-medium bg-white text-[#1D1D1F] shadow-sm">
+              Youth &amp; Emerging Athletes
+            </button>
+            <button role="tab" aria-selected="false" data-pathway="seekers" class="pathway-tab segment-btn px-4 sm:px-5 py-2.5 rounded-xl sm:rounded-full text-xs sm:text-[13px] font-medium text-[#6E6E73] hover:text-[#1D1D1F]">
+              Job Seekers &amp; Students
+            </button>
+            <button role="tab" aria-selected="false" data-pathway="communities" class="pathway-tab segment-btn px-4 sm:px-5 py-2.5 rounded-xl sm:rounded-full text-xs sm:text-[13px] font-medium text-[#6E6E73] hover:text-[#1D1D1F]">
+              Community &amp; Sport Organizations
+            </button>
+            <button role="tab" aria-selected="false" data-pathway="employers" class="pathway-tab segment-btn px-4 sm:px-5 py-2.5 rounded-xl sm:rounded-full text-xs sm:text-[13px] font-medium text-[#6E6E73] hover:text-[#1D1D1F]">
+              Corporate &amp; Institutional Partners
+            </button>
+          </div>
+        </div>
+        <div id="pathwayPanel" class="mt-10 bg-white rounded-[30px] border border-[#D2D2D7]/70 p-7 sm:p-11 shadow-apple-md reveal transition-all duration-300"></div>
+      </div>
+    </section>
+
+    <section id="governance" class="py-20 sm:py-28 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl reveal">
+          <p class="text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#D80621]">Governance &amp; Stewardship</p>
+          <h2 class="mt-3 text-3xl sm:text-5xl font-semibold tracking-[-0.025em] text-[#1D1D1F] leading-[1.12]">
+            Guided by public-benefit stewardship and accountability.
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-[#6E6E73]">
+            As a Canadian federal not-for-profit organization, The House of Sport Foundation operates strictly on a non-distribution basis—reinvesting 100% of resources into community, youth, and sport initiatives.
+          </p>
+        </div>
+        <div class="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-6 reveal">
+          <div class="lg:col-span-7 bg-[#F5F5F7] rounded-[28px] p-7 sm:p-9 border border-[#D2D2D7]/60 flex flex-col justify-between space-y-6">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full bg-white text-xs font-medium text-[#1D1D1F] border border-[#D2D2D7]/70 mb-4">
+                Not-for-Profit Commitment
+              </span>
+              <h3 class="text-2xl font-semibold tracking-tight text-[#1D1D1F]">
+                100% Mission-Driven Reinvestment
+              </h3>
+              <p class="mt-3 text-sm sm:text-[15px] text-[#6E6E73] leading-relaxed">
+                The House of Sport Foundation operates exclusively for public benefit without private profit. Every grant, sponsorship, and program contribution is reinvested directly into advancing sport accessibility, youth mentorship, workforce readiness, and community infrastructure across Canada.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="bg-white rounded-2xl p-5 border border-[#D2D2D7]/60">
+                <div class="flex items-center gap-2 text-sm font-semibold text-[#1D1D1F]">
+                  <svg class="w-4 h-4 text-[#D80621]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                  </svg>
+                  <span>Non-Distribution Basis</span>
+                </div>
+                <p class="mt-2 text-xs text-[#6E6E73] leading-relaxed">
+                  All income and organizational resources are dedicated solely to advancing our community and educational mandate.
+                </p>
+              </div>
+              <div class="bg-white rounded-2xl p-5 border border-[#D2D2D7]/60">
+                <div class="flex items-center gap-2 text-sm font-semibold text-[#1D1D1F]">
+                  <svg class="w-4 h-4 text-[#D80621]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <span>Collaborative Stewardship</span>
+                </div>
+                <p class="mt-2 text-xs text-[#6E6E73] leading-relaxed">
+                  Working alongside municipalities, Indigenous communities, schools, and industry partners to ensure lasting impact.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-[#F5F5F7] rounded-[28px] p-7 sm:p-9 border border-[#D2D2D7]/60 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-semibold text-[#1D1D1F]">Board of Directors</h3>
+                <span class="px-3 py-1 rounded-full bg-white text-[11px] font-medium text-[#6E6E73] border border-[#D2D2D7]/60">
+                  Volunteer Leadership
+                </span>
+              </div>
+              <p class="text-xs sm:text-[13px] text-[#6E6E73] mb-6 leading-relaxed">
+                Our volunteer Board of Directors provides strategic oversight, fiduciary governance, and national partnership guidance.
+              </p>
+              <ul class="space-y-3">
+                <li class="bg-white rounded-2xl p-4 border border-[#D2D2D7]/60 flex items-center justify-between">
+                  <div>
+                    <p class="text-sm font-semibold text-[#1D1D1F]">Randeep Chhinzer</p>
+                    <p class="text-xs text-[#6E6E73]">Founder &amp; Director</p>
+                  </div>
+                  <span class="w-9 h-9 rounded-full bg-[#FFF5F6] text-[#D80621] text-xs font-semibold flex items-center justify-center">RC</span>
+                </li>
+                <li class="bg-white rounded-2xl p-4 border border-[#D2D2D7]/60 flex items-center justify-between">
+                  <div>
+                    <p class="text-sm font-semibold text-[#1D1D1F]">Sheldon Callender</p>
+                    <p class="text-xs text-[#6E6E73]">Director</p>
+                  </div>
+                  <span class="w-9 h-9 rounded-full bg-[#FFF5F6] text-[#D80621] text-xs font-semibold flex items-center justify-center">SC</span>
+                </li>
+                <li class="bg-white rounded-2xl p-4 border border-[#D2D2D7]/60 flex items-center justify-between">
+                  <div>
+                    <p class="text-sm font-semibold text-[#1D1D1F]">Damon Stanley Wellman</p>
+                    <p class="text-xs text-[#6E6E73]">Director</p>
+                  </div>
+                  <span class="w-9 h-9 rounded-full bg-[#FFF5F6] text-[#D80621] text-xs font-semibold flex items-center justify-center">DW</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#D2D2D7]/60 flex items-center justify-between text-xs text-[#6E6E73]">
+              <span>Oakville, Ontario, Canada</span>
+              <button onclick="openPartnerModal('Corporate Sponsorship &amp; Grants')" class="text-[#D80621] font-medium hover:underline">
+                Connect with Leadership ›
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 sm:py-28 bg-[#F5F5F7] border-t border-[#D2D2D7]/50">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-[32px] border border-[#D2D2D7]/70 shadow-apple-md overflow-hidden reveal">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <div class="lg:col-span-5 bg-[#1D1D1F] text-white p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#D80621]"></div>
+              <div>
+                <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#FF6B7D]">
+                  <svg class="w-3.5 h-3.5 text-[#D80621]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L9.8 7.2L6.2 6.4L7.6 10.6L4 12.2L8.4 14.4L7.8 17.2H11.2V22H12.8V17.2H16.2L15.6 14.4L20 12.2L16.4 10.6L17.8 6.4L14.2 7.2L12 2Z"></path>
+                  </svg>
+                  <span>Connect &amp; Partner</span>
+                </div>
+                <h2 class="mt-3 text-2xl sm:text-3xl font-semibold tracking-tight leading-snug">
+                  Build the future of Canadian sport with us.
+                </h2>
+                <p class="mt-4 text-sm text-[#A1A1A6] leading-relaxed">
+                  Whether you are an emerging athlete, a mentor, a municipality, an Indigenous partner, an educator, or an organization looking to sponsor programs or hire talent, we welcome your collaboration.
+                </p>
+                <div class="mt-8 space-y-4 text-sm">
+                  <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-[#D80621] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <div>
+                      <p class="font-medium text-white">Location</p>
+                      <p class="text-xs text-[#A1A1A6] mt-0.5">Oakville, Ontario, Canada</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-[#D80621] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                    </svg>
+                    <div>
+                      <p class="font-medium text-white">Digital Home</p>
+                      <p class="text-xs text-[#A1A1A6] mt-0.5">www.thehouseofsport.ca<br>info@thehouseofsport.ca</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-10 pt-6 border-t border-white/10 text-xs text-[#86868B] flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-[#D80621]" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L9.8 7.2L6.2 6.4L7.6 10.6L4 12.2L8.4 14.4L7.8 17.2H11.2V22H12.8V17.2H16.2L15.6 14.4L20 12.2L16.4 10.6L17.8 6.4L14.2 7.2L12 2Z"></path>
+                </svg>
+                <span>Canadian Federal Not-for-Profit · www.thehouseofsport.ca</span>
+              </div>
+            </div>
+            <div class="lg:col-span-7 p-8 sm:p-10">
+              <form id="contactForm" class="space-y-5">
+                <div>
+                  <label for="interestSelect" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] mb-2">
+                    Area of Interest
+                  </label>
+                  <select id="interestSelect" name="interest" class="w-full rounded-xl border border-[#D2D2D7] bg-[#F5F5F7]/60 px-4 py-3 text-sm text-[#1D1D1F] focus:bg-white focus:border-[#D80621] focus:outline-none transition-colors">
+                    <option value="Mentorship &amp; Leadership">Mentorship &amp; Leadership</option>
+                    <option value="Workforce, Internships &amp; Training">Workforce, Internships &amp; Training</option>
+                    <option value="Community &amp; Youth Sport Programs">Community &amp; Youth Sport Programs</option>
+                    <option value="Corporate Sponsorship &amp; Grants">Corporate Sponsorship &amp; Grants</option>
+                    <option value="Sport Innovation &amp; Research">Sport Innovation &amp; Research</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                  </select>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="fullName" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] mb-2">
+                      Full Name *
+                    </label>
+                    <input type="text" id="fullName" name="fullName" required="" placeholder="Alex Morgan" class="w-full rounded-xl border border-[#D2D2D7] bg-[#F5F5F7]/60 px-4 py-3 text-sm text-[#1D1D1F] placeholder-[#86868B] focus:bg-white focus:border-[#D80621] focus:outline-none transition-colors">
+                  </div>
+                  <div>
+                    <label for="emailAddress" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] mb-2">
+                      Email Address *
+                    </label>
+                    <input type="email" id="emailAddress" name="emailAddress" required="" placeholder="alex@organization.ca" class="w-full rounded-xl border border-[#D2D2D7] bg-[#F5F5F7]/60 px-4 py-3 text-sm text-[#1D1D1F] placeholder-[#86868B] focus:bg-white focus:border-[#D80621] focus:outline-none transition-colors">
+                  </div>
+                </div>
+                <div>
+                  <label for="organization" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] mb-2">
+                    Organization / Club / School (Optional)
+                  </label>
+                  <input type="text" id="organization" name="organization" placeholder="e.g., Ontario Youth Athletics / Community Partner" class="w-full rounded-xl border border-[#D2D2D7] bg-[#F5F5F7]/60 px-4 py-3 text-sm text-[#1D1D1F] placeholder-[#86868B] focus:bg-white focus:border-[#D80621] focus:outline-none transition-colors">
+                </div>
+                <div>
+                  <label for="messageBox" class="block text-xs font-semibold uppercase tracking-wider text-[#6E6E73] mb-2">
+                    How can we collaborate? *
+                  </label>
+                  <textarea id="messageBox" name="message" rows="4" required="" placeholder="Tell us about your goals, community initiative, mentorship interest, or partnership proposal..." class="w-full rounded-xl border border-[#D2D2D7] bg-[#F5F5F7]/60 px-4 py-3 text-sm text-[#1D1D1F] placeholder-[#86868B] focus:bg-white focus:border-[#D80621] focus:outline-none transition-colors resize-none"></textarea>
+                </div>
+                <div class="pt-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <p class="text-xs text-[#6E6E73]">
+                    We respond to all partnership and program inquiries within 2 business days.
+                  </p>
+                  <button type="submit" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#D80621] hover:bg-[#B8051C] text-white text-sm font-medium transition-all shadow-sm active:scale-[0.98] shrink-0">
+                    Submit Inquiry
+                  </button>
+                </div>
+              </form>
+              <div id="formConfirmation" class="hidden py-10 text-center space-y-4">
+                <div class="w-14 h-14 rounded-full bg-[#D80621]/10 text-[#D80621] flex items-center justify-center mx-auto">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-semibold text-[#1D1D1F]">Thank you for reaching out.</h3>
+                <p id="confirmationSummary" class="text-sm text-[#6E6E73] max-w-md mx-auto leading-relaxed">
+                  Your message has been logged with The House of Sport Foundation team in Oakville, Ontario.
+                </p>
+                <div class="pt-3">
+                  <button onclick="resetContactForm()" class="px-5 py-2.5 rounded-full bg-[#F5F5F7] hover:bg-[#EBEBEF] text-xs font-medium text-[#1D1D1F] transition-colors">
+                    Send Another Inquiry
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#F5F5F7] border-t border-[#D2D2D7]/80 text-xs text-[#6E6E73]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="pb-6 border-b border-[#D2D2D7]/80 leading-relaxed">
+        <p>
+          <strong class="font-medium text-[#1D1D1F]">The House of Sport Foundation</strong> is a Canadian federal not-for-profit organization operating on a non-distribution basis—reinvesting 100% of resources into advancing sport participation, education, workforce pathways, youth empowerment, mentorship, and community innovation across Canada and internationally.
+        </p>
+      </div>
+      <div class="py-8 grid grid-cols-2 sm:grid-cols-4 gap-8 border-b border-[#D2D2D7]/80">
+        <div>
+          <h4 class="font-semibold text-[#1D1D1F] mb-3">Foundation</h4>
+          <ul class="space-y-2">
+            <li><a href="#mission" class="hover:text-[#1D1D1F] hover:underline">Our Mission</a></li>
+            <li><a href="#pillars" class="hover:text-[#1D1D1F] hover:underline">Strategic Pillars</a></li>
+            <li><a href="#pathways" class="hover:text-[#1D1D1F] hover:underline">Who We Serve</a></li>
+            <li><a href="#governance" class="hover:text-[#1D1D1F] hover:underline">Governance &amp; Board</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-[#1D1D1F] mb-3">Core Programs</h4>
+          <ul class="space-y-2">
+            <li><a href="#pillars" class="hover:text-[#1D1D1F] hover:underline">Sport Development</a></li>
+            <li><a href="#pillars" class="hover:text-[#1D1D1F] hover:underline">Education &amp; Workforce</a></li>
+            <li><a href="#pillars" class="hover:text-[#1D1D1F] hover:underline">Youth Empowerment</a></li>
+            <li><a href="#pillars" class="hover:text-[#1D1D1F] hover:underline">Mentorship &amp; Transition</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-[#1D1D1F] mb-3">Ecosystem</h4>
+          <ul class="space-y-2">
+            <li><a href="#pillars" class="hover:text-[#1D1D1F] hover:underline">Sport Innovation &amp; Tech</a></li>
+            <li><a href="#pillars" class="hover:text-[#1D1D1F] hover:underline">Community Infrastructure</a></li>
+            <li><a href="#pathways" class="hover:text-[#1D1D1F] hover:underline">Civic &amp; Indigenous Alliances</a></li>
+            <li><a href="#contact" class="hover:text-[#1D1D1F] hover:underline">Sponsorships &amp; Grants</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-[#1D1D1F] mb-3">Connect</h4>
+          <ul class="space-y-2">
+            <li>Oakville, Ontario, Canada</li>
+            <li><a href="https://www.thehouseofsport.ca" class="text-[#D80621] hover:underline">www.thehouseofsport.ca</a></li>
+            <li><a href="#contact" class="hover:text-[#1D1D1F] hover:underline">info@thehouseofsport.ca</a></li>
+            <li><button onclick="openPartnerModal('Corporate Sponsorship &amp; Grants')" class="hover:text-[#1D1D1F] hover:underline text-left">Partner With Us</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="flex items-center gap-1.5">
+          <span>© 2026 The House of Sport Foundation. Proudly Canadian.</span>
+        </p>
+        <div class="flex items-center gap-4">
+          <span>Oakville, Ontario, Canada</span>
+          <span>·</span>
+          <span>www.thehouseofsport.ca</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="detailModal" role="dialog" aria-modal="true" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 modal-backdrop">
+    <div class="bg-white rounded-[28px] max-w-2xl w-full max-h-[88vh] overflow-y-auto shadow-apple-lg border border-[#D2D2D7]/80 p-6 sm:p-9 relative">
+      <button onclick="closeDetailModal()" aria-label="Close modal" class="sticky top-0 float-right w-9 h-9 rounded-full bg-[#F5F5F7] hover:bg-[#EBEBEF] text-[#1D1D1F] flex items-center justify-center transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <div id="modalContent" class="clear-both pt-1"></div>
+    </div>
+  </div>
+
+  <script>
+    const PILLARS_DATA = [
+      {
+        id: 'sport-dev',
+        category: 'people',
+        tag: 'Pillar 01 · Participation',
+        title: 'Sport Development & Participation',
+        summary: 'Promoting and delivering amateur, recreational, competitive, and community-based sports across Canada and internationally.',
+        icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6c3.5 3.5 9.3 3.5 12.8 0M5.6 18.4c3.5-3.5 9.3-3.5 12.8 0M12 3v18"/></svg>',
+        fullDescription: 'We promote, support, develop, and advance amateur, recreational, competitive, emerging, and community-based sports and athletic activities throughout Canada and internationally, while expanding public awareness and volunteerism.',
+        initiatives: [
+          'Organization, hosting, and management of sporting events, tournaments, leagues, festivals, and exhibitions',
+          'Grassroots athletic development and accessible community-based sport programming',
+          'Public engagement campaigns promoting active living, volunteerism, and community leadership'
+        ],
+        ctaInterest: 'Community & Youth Sport Programs'
+      },
+      {
+        id: 'workforce',
+        category: 'economy',
+        tag: 'Pillar 02 · Workforce',
+        title: 'Education & Workforce Pathways',
+        summary: 'Advancing vocational training, apprenticeships, certifications, and job placements across sport, recreation, events, and entertainment.',
+        icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>',
+        fullDescription: 'We build direct pathways from passion for sport into sustainable careers across athletics, recreation, entertainment, live events, and sports technology.',
+        initiatives: [
+          'Vocational training programs, industry workshops, and professional certifications',
+          'Paid internships, apprenticeships, and experiential learning placements',
+          'Employment assistance, job placement initiatives, and employer-educator talent pipelines'
+        ],
+        ctaInterest: 'Workforce, Internships & Training'
+      },
+      {
+        id: 'youth-inclusion',
+        category: 'people',
+        tag: 'Pillar 03 · Inclusion',
+        title: 'Youth Empowerment & Social Inclusion',
+        summary: 'Creating equitable access, barrier-free programming, and leadership pathways for youth, emerging athletes, and underserved communities.',
+        icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>',
+        fullDescription: 'We break down financial and systemic barriers so youth, emerging athletes, and individuals facing barriers to employment can thrive on and off the field.',
+        initiatives: [
+          'Equitable access programming for underserved populations and communities in need',
+          'Youth leadership academies, personal development, and life-skills cohorts',
+          'Integrated sport, education, and employment pathways driving social and economic inclusion'
+        ],
+        ctaInterest: 'Community & Youth Sport Programs'
+      },
+      {
+        id: 'mentorship',
+        category: 'people',
+        tag: 'Pillar 04 · Mentorship',
+        title: 'Mentorship & Athlete Transition',
+        summary: 'Structured 1-on-1 and peer mentorship supporting athlete-to-career transition, life skills, and aspiring entrepreneurs.',
+        icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>',
+        fullDescription: 'Connecting emerging athletes, students, job seekers, and aspiring founders with experienced athletes, coaches, educators, employers, and business leaders.',
+        initiatives: [
+          'One-on-one, peer, and group mentorship circles with intergenerational knowledge sharing',
+          'Dedicated athlete-to-career transition coaching and professional networking',
+          'Entrepreneurship mentorship and leadership training for underrepresented founders'
+        ],
+        ctaInterest: 'Mentorship & Leadership'
+      },
+      {
+        id: 'innovation',
+        category: 'economy',
+        tag: 'Pillar 05 · Innovation',
+        title: 'Sport Innovation, Tech & Research',
+        summary: 'Advancing digital transformation, R&D, safety, accessibility, and performance technologies across sport and recreation.',
+        icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>',
+        fullDescription: 'We encourage research, technological advancement, digital transformation, and entrepreneurship that modernize how Canadians access, train in, and experience sport.',
+        initiatives: [
+          'Applied research and development improving athletic safety, accessibility, and performance',
+          'Digital transformation tools and operational systems for community sport organizations',
+          'Support for sport-tech entrepreneurship and adoption of next-generation recreational products'
+        ],
+        ctaInterest: 'Sport Innovation & Research'
+      },
+      {
+        id: 'infrastructure',
+        category: 'community',
+        tag: 'Pillar 06 · Alliances',
+        title: 'Community Infrastructure & Partnerships',
+        summary: 'Developing sports and innovation facilities while forging partnerships with municipalities, Indigenous communities, schools, and industry.',
+        icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>',
+        fullDescription: 'Strengthening Canada’s sport sector through multi-purpose community facilities, sustainable industry growth, and collaborative national and international alliances.',
+        initiatives: [
+          'Establishing, leasing, and operating sports, recreational, educational, and innovation centres',
+          'Joint initiatives with municipal, provincial, territorial, federal, and Indigenous partners',
+          'Sustainable resource development through grants, sponsorships, and public-private alliances'
+        ],
+        ctaInterest: 'Corporate Sponsorship & Grants'
+      }
+    ];
+
+    const PATHWAYS_DATA = {
+      youth: {
+        badge: 'Pathway 01 · Athletes & Youth',
+        title: 'Supporting every step from first practice to lifelong leadership.',
+        description: 'We empower youth and emerging athletes—especially from underserved or underrepresented communities—with holistic coaching, life skills, and guidance beyond competition.',
+        highlights: [
+          { heading: 'Accessible Leagues & Tournaments', text: 'Participate in community-based competitions, athletic festivals, and skill clinics designed for inclusive access.' },
+          { heading: 'Athlete-to-Career Transition', text: 'Translate discipline, teamwork, and resilience into post-secondary education, leadership, and career readiness.' },
+          { heading: '1-on-1 & Peer Mentorship', text: 'Connect directly with experienced athletes, coaches, and community mentors who invest in your personal growth.' }
+        ],
+        ctaText: 'Join a Youth or Mentorship Program',
+        ctaInterest: 'Mentorship & Leadership'
+      },
+      seekers: {
+        badge: 'Pathway 02 · Career & Workforce',
+        title: 'Turn your passion for sport into a resilient, future-ready career.',
+        description: 'The sports, recreation, entertainment, and events industries represent a dynamic engine of Canadian employment. We equip students and job seekers with practical credentials and employer connections.',
+        highlights: [
+          { heading: 'Vocational Training & Certifications', text: 'Gain industry-recognized skills in event operations, sport administration, coaching, and digital sports media.' },
+          { heading: 'Internships & Apprenticeships', text: 'Bridge the experience gap through structured placements with sports organizations, venues, and technology partners.' },
+          { heading: 'Entrepreneurship & Networking', text: 'Receive career guidance, job placement support, and startup mentorship for aspiring sports entrepreneurs.' }
+        ],
+        ctaText: 'Explore Workforce & Internship Pathways',
+        ctaInterest: 'Workforce, Internships & Training'
+      },
+      communities: {
+        badge: 'Pathway 03 · Community & Sport Organizations',
+        title: 'Co-creating accessible facilities and thriving community ecosystems.',
+        description: 'We collaborate with municipalities, Indigenous communities and organizations, educational institutions, and local sport clubs to strengthen community well-being and expand access.',
+        highlights: [
+          { heading: 'Indigenous & Civic Partnerships', text: 'Respectful, community-led joint initiatives advancing youth inclusion, athletic participation, and local leadership.' },
+          { heading: 'Shared Sport & Innovation Spaces', text: 'Developing and activating multi-purpose recreational, training, and educational hubs in underserved areas.' },
+          { heading: 'Volunteerism & Public Engagement', text: 'Mobilizing local coaches, educators, and volunteers to build sustainable grassroots sport infrastructure.' }
+        ],
+        ctaText: 'Propose a Community Partnership',
+        ctaInterest: 'Community & Youth Sport Programs'
+      },
+      employers: {
+        badge: 'Pathway 04 · Corporate & Institutional Partners',
+        title: 'Partner with a national foundation driving measurable social and economic impact.',
+        description: 'We invite employers, sport-tech innovators, philanthropic foundations, and corporate sponsors to co-invest in workforce pipelines, applied R&D, and high-impact national events.',
+        highlights: [
+          { heading: 'Curated Talent Pipelines', text: 'Host trained interns and apprentices or recruit career-ready graduates and transitioning athletes.' },
+          { heading: 'Sport-Tech Pilots & Research', text: 'Collaborate on digital transformation, safety, and accessibility innovations across our partner network.' },
+          { heading: 'Sponsorships, Grants & Joint Initiatives', text: 'Fund named scholarships, regional tournaments, or community innovation hubs with full public transparency.' }
+        ],
+        ctaText: 'Become a Founding Partner or Sponsor',
+        ctaInterest: 'Corporate Sponsorship & Grants'
+      }
+    };
+
+    function renderPillars(filter = 'all') {
+      const grid = document.getElementById('pillarsGrid');
+      const filtered = filter === 'all' ? PILLARS_DATA : PILLARS_DATA.filter(item => item.category === filter);
+      grid.innerHTML = filtered.map(pillar => `
+        <article onclick="openPillarModal('${pillar.id}')" class="bento-card cursor-pointer group rounded-[28px] bg-[#F5F5F7] hover:bg-white border border-[#D2D2D7]/60 hover:border-[#D80621]/40 p-7 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-white group-hover:bg-[#D80621] text-[#1D1D1F] group-hover:text-white flex items-center justify-center shadow-apple-sm transition-colors">
+                ${pillar.icon}
+              </div>
+              <span class="text-[11px] font-medium text-[#6E6E73] bg-white/80 px-3 py-1 rounded-full border border-[#D2D2D7]/50">${pillar.tag}</span>
+            </div>
+            <h3 class="text-xl font-semibold tracking-tight text-[#1D1D1F] group-hover:text-[#D80621] transition-colors">${pillar.title}</h3>
+            <p class="mt-3 text-sm text-[#6E6E73] leading-relaxed">${pillar.summary}</p>
+          </div>
+          <div class="mt-7 pt-4 border-t border-[#D2D2D7]/50 flex items-center justify-between text-xs font-medium text-[#D80621]">
+            <span>Explore Programs</span>
+            <span class="transform group-hover:translate-x-1 transition-transform text-base leading-none">&rsaquo;</span>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    document.querySelectorAll('.pillar-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pillar-filter-btn').forEach(b => {
+          b.classList.remove('bg-[#D80621]', 'text-white');
+          b.classList.add('bg-[#F5F5F7]', 'text-[#1D1D1F]');
+        });
+        btn.classList.remove('bg-[#F5F5F7]', 'text-[#1D1D1F]');
+        btn.classList.add('bg-[#D80621]', 'text-white');
+        renderPillars(btn.dataset.filter);
+      });
+    });
+
+    function renderPathway(key = 'youth') {
+      const panel = document.getElementById('pathwayPanel');
+      const data = PATHWAYS_DATA[key];
+      if (!panel || !data) return;
+      panel.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div class="lg:col-span-5 space-y-4">
+            <span class="inline-block px-3.5 py-1.5 rounded-full bg-[#FFF5F6] text-xs font-semibold text-[#D80621]">${data.badge}</span>
+            <h3 class="text-2xl sm:text-3xl font-semibold tracking-tight text-[#1D1D1F] leading-snug">${data.title}</h3>
+            <p class="text-sm sm:text-base text-[#6E6E73] leading-relaxed">${data.description}</p>
+            <div class="pt-3">
+              <button onclick="openPartnerModal('${data.ctaInterest}')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#D80621] hover:bg-[#B8051C] text-white text-sm font-medium transition-all shadow-sm active:scale-[0.98]">
+                <span>${data.ctaText}</span>
+                <span>&rsaquo;</span>
+              </button>
+            </div>
+          </div>
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
+            ${data.highlights.map(item => `
+              <div class="rounded-2xl bg-[#F5F5F7] p-5 sm:p-6 border border-[#D2D2D7]/60">
+                <h4 class="text-base font-semibold text-[#1D1D1F]">${item.heading}</h4>
+                <p class="mt-1.5 text-xs sm:text-sm text-[#6E6E73] leading-relaxed">${item.text}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    document.querySelectorAll('.pathway-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.pathway-tab').forEach(t => {
+          t.setAttribute('aria-selected', 'false');
+          t.classList.remove('bg-white', 'text-[#1D1D1F]', 'shadow-sm');
+          t.classList.add('text-[#6E6E73]');
+        });
+        tab.setAttribute('aria-selected', 'true');
+        tab.classList.remove('text-[#6E6E73]');
+        tab.classList.add('bg-white', 'text-[#1D1D1F]', 'shadow-sm');
+        renderPathway(tab.dataset.pathway);
+      });
+    });
+
+    const detailModal = document.getElementById('detailModal');
+    const modalContent = document.getElementById('modalContent');
+
+    function openDetailModal(html) {
+      modalContent.innerHTML = html;
+      detailModal.classList.remove('hidden');
+      detailModal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDetailModal() {
+      detailModal.classList.add('hidden');
+      detailModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    detailModal.addEventListener('click', (e) => {
+      if (e.target === detailModal) closeDetailModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !detailModal.classList.contains('hidden')) closeDetailModal();
+    });
+
+    function openPillarModal(id) {
+      const p = PILLARS_DATA.find(item => item.id === id);
+      if (!p) return;
+      openDetailModal(`
+        <div class="space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F5F7] text-xs font-medium text-[#6E6E73]">
+            <span>${p.tag}</span><span>&middot;</span><span>The House of Sport Foundation</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-semibold tracking-tight text-[#1D1D1F]">${p.title}</h3>
+          <p class="text-base text-[#6E6E73] leading-relaxed">${p.fullDescription}</p>
+          <div class="bg-[#F5F5F7] rounded-2xl p-5 sm:p-6 space-y-3 border border-[#D2D2D7]/60">
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-[#1D1D1F]">Key Program &amp; Community Deliverables</h4>
+            <ul class="space-y-2.5 text-sm text-[#1D1D1F]">
+              ${p.initiatives.map(init => `
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-[#D80621] shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-[#6E6E73]">${init}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+          <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <span class="text-xs text-[#6E6E73]">www.thehouseofsport.ca</span>
+            <button onclick="openPartnerModal('${p.ctaInterest}')" class="px-6 py-3 rounded-full bg-[#D80621] hover:bg-[#B8051C] text-white text-sm font-medium transition-colors">
+              Collaborate on This Pillar &rsaquo;
+            </button>
+          </div>
+        </div>
+      `);
+    }
+
+    function openPartnerModal(preselectedInterest) {
+      closeDetailModal();
+      const select = document.getElementById('interestSelect');
+      if (select && preselectedInterest) select.value = preselectedInterest;
+      resetContactForm();
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => document.getElementById('fullName')?.focus(), 650);
+    }
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIconOpen = document.getElementById('menuIconOpen');
+    const menuIconClose = document.getElementById('menuIconClose');
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      menuIconOpen.classList.remove('hidden');
+      menuIconClose.classList.add('hidden');
+    }
+
+    mobileMenuBtn.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        menuIconOpen.classList.add('hidden');
+        menuIconClose.classList.remove('hidden');
+      } else {
+        closeMobileMenu();
+      }
+    });
+
+    const contactForm = document.getElementById('contactForm');
+    const formConfirmation = document.getElementById('formConfirmation');
+    const confirmationSummary = document.getElementById('confirmationSummary');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('fullName').value.trim();
+      const interest = document.getElementById('interestSelect').value;
+      confirmationSummary.textContent = `Thank you, ${name}. Your inquiry regarding "${interest}" has been recorded for The House of Sport Foundation team in Oakville, Ontario.`;
+      contactForm.classList.add('hidden');
+      formConfirmation.classList.remove('hidden');
+    });
+
+    function resetContactForm() {
+      contactForm.reset();
+      formConfirmation.classList.add('hidden');
+      contactForm.classList.remove('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPillars('all');
+      renderPathway('youth');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  </script>
